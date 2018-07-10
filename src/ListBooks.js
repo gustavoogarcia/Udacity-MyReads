@@ -3,6 +3,14 @@ import BookShelf from './BookShelf';
 
 class ListBooks extends React.Component {
     render() {
+        const shelfs = [
+            { name: 'Currently Reading' },
+            { name: 'Want to Read' },
+            { name: 'Read' },
+        ]
+
+        const { books } = this.props
+
         return (
             <div className="list-books">
                 <div className="list-books-title">
@@ -10,9 +18,9 @@ class ListBooks extends React.Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <BookShelf name='Currently Reading'/>
-                        <BookShelf name='Want to Read'/>
-                        <BookShelf name='Read'/>
+                        {shelfs.map(shelf => (
+                            <BookShelf name={shelf.name} books={books} />
+                        ))}
                     </div>
                 </div>
                 <div className="open-search">
