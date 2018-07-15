@@ -21,7 +21,7 @@ class BooksSearch extends React.Component {
                 <If test={searchedBooks}>
                     <div className="search-info">
                         <div>Now showing {searchedBooks.length} Books on your search!</div>
-                        <button onClick={clearQuery}>Clean search</button>
+                        <button onClick={clearQuery}>Clear search</button>
                     </div>
                     <div className="search-books-results">
                         <ol className="books-grid">
