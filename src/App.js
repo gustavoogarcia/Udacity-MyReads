@@ -2,12 +2,14 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import SearchBooks from './SearchBooks';
-import ListBooks from './ListBooks';
+import BooksSearch from './BooksSearch';
+import BooksList from './BooksList';
 
 class BooksApp extends React.Component {
 	state = {
-		books: []
+		books: [],
+		searchedBooks: [],
+		query: ""
 	}
 
 	componentDidMount() {
@@ -18,26 +20,37 @@ class BooksApp extends React.Component {
 
 	changeShelf = (e, book) => {
 		let shelf = e.target.value
-		let { books } = this.state;
+		let { books } = this.state
 		books = books.filter (b => b.title !== book.title).concat({
 			...book,
 			shelf: shelf
-		});
-		this.setState({ books });
-		BooksAPI.update(book, shelf)
+		})
+		this.setState({ books })
+		BooksAPI.update(book, e.target.value)
 		
 	}
 
+	updateQuery = (newQuery) => {
+					BooksAPI.search(newQuery).then((searchedBooks) => {
+			this.setState({ searchedBooks })
+		})
+	}
+
+	clearQuery = () => {
+		this.setState({ query: '' })
+	}
+
+
 	render() {
-		const { books } = this.state
-		const { changeShelf } = this
+		const { state, changeShelf, clearQuery, updateQuery } = this
+		const { books, searchedBooks, query } = state
 		return (
 			<div className="app">
 				<Route path="/" exact render={() => (
-					<ListBooks changeShelf={changeShelf} books={books}/>
+					<BooksList changeShelf={changeShelf} books={books}/>
 				)} />
 				<Route path="/search" render={() => (
-					<SearchBooks/>
+					<BooksSearch query={query} updateQuery={updateQuery} clearQuery={clearQuery} changeShelf={changeShelf} searchedBooks={searchedBooks}/>
 				)} />
 			</div>
 		)

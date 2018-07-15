@@ -99,6 +99,18 @@ body, .app {
   font-size: 0;
 }
 
+.search-info {
+  display: flex;
+  justify-content: center;
+  top: 80px;
+  position: relative;
+  margin-bottom: 30px
+}
+
+.search-info>div {
+  margin-right: 20px;
+}
+
 .search-books-results {
   padding: 80px 10px 20px;
 }

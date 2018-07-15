@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import BookShelf from './BookShelf';
+import BooksShelf from './BooksShelf';
 
 
-class ListBooks extends React.Component {
+class BooksList extends React.Component {
     render() {
         const shelfs = [
             { name: 'currentlyReading', label: 'Currently Reading' },
@@ -21,7 +22,7 @@ class ListBooks extends React.Component {
                 <div className="list-books-content">
                     <div>
                         {shelfs.map(shelf => (
-                            <BookShelf key={shelf.name} name={shelf.name} label={shelf.label} changeShelf={changeShelf} books={books} />
+                            <BooksShelf key={shelf.name} name={shelf.name} label={shelf.label} changeShelf={changeShelf} books={books} />
                         ))}
                     </div>
                 </div>
@@ -33,4 +34,9 @@ class ListBooks extends React.Component {
     }
 };
 
-export default ListBooks
+BooksList.propTypes = {
+    books: PropTypes.array.isRequired,
+    changeShelf: PropTypes.func.isRequired 
+}
+
+export default BooksList

@@ -1,14 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { shallow, mount } from 'enzyme';
 import App from './App'
 
-/** 
- This course is not designed to teach Test Driven Development. 
- Feel free to use this file to test your application, but it 
- is not required.
-**/
+describe('[Component] App', () => {
+    global.localStorage = {
+      token: '12345678'
+    }
 
-it('renders without crashing', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
-})
+    it('Shallow renders correctly', () => {
+        expect(shallow(<App />));
+    });
+
+});
