@@ -32,16 +32,15 @@ class BooksApp extends React.Component {
 
 	updateQuery = (query) => {
 		this.setState({ query })
-		BooksAPI.search(query).then((searchedBooks) => {
-			searchedBooks instanceof Array ? this.setState({ searchedBooks }) : this.setState({ searchedBooks: [] })
-		})
+		query === "" ? this.setState({ searchedBooks: [] }) : 
+			BooksAPI.search(query).then((searchedBooks) => {
+				searchedBooks instanceof Array ? this.setState({ searchedBooks }) : this.setState({ searchedBooks: [] })
+			})
 	}
 
 	clearQuery = () => {
-		this.setState({ query: '' })
+		this.updateQuery("")
 	}
-
-
 	render() {
 		const { state, changeShelf, clearQuery, updateQuery } = this
 		const { books, searchedBooks, query } = state
@@ -51,7 +50,7 @@ class BooksApp extends React.Component {
 					<BooksList changeShelf={changeShelf} books={books}/>
 				)} />
 				<Route path="/search" render={() => (
-					<BooksSearch query={query} updateQuery={updateQuery} clearQuery={clearQuery} changeShelf={changeShelf} searchedBooks={searchedBooks}/>
+					<BooksSearch query={query} updateQuery={updateQuery} clearQuery={clearQuery} changeShelf={changeShelf} books={books} searchedBooks={searchedBooks}/>
 				)} />
 			</div>
 		)

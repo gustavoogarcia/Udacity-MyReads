@@ -6,8 +6,16 @@ import BookItem from './BookItem';
 
 class BooksSearch extends React.Component {
     render() {
-        let { query, updateQuery, clearQuery, changeShelf, searchedBooks } = this.props
+        let { query, updateQuery, clearQuery, changeShelf, searchedBooks, books } = this.props
         
+        for (let searchedBook of searchedBooks) {
+            for (let book of books) {
+                if (book.id === searchedBook.id) {
+                    searchedBook.shelf = book.shelf
+                }
+            }
+        }
+
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -24,7 +32,7 @@ class BooksSearch extends React.Component {
                     <div className="search-books-results">
                         <ol className="books-grid">
                             {searchedBooks.map((book) => (
-                                    <BookItem key={book.title} changeShelf={changeShelf} book={book} />
+                                    <BookItem key={book.id} changeShelf={changeShelf} book={book} />
                                 )
                             )}
                         </ol>
