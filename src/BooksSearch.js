@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
 import { Link } from 'react-router-dom'
 import If from './helpers/If'
 import BookItem from './BookItem';
@@ -8,7 +7,6 @@ import BookItem from './BookItem';
 class BooksSearch extends React.Component {
     render() {
         let { query, updateQuery, clearQuery, changeShelf, searchedBooks } = this.props
-        
         
         return (
             <div className="search-books">
@@ -18,7 +16,7 @@ class BooksSearch extends React.Component {
                         <input type="text" placeholder="Search by title or author" value={query} onChange={(e) => updateQuery(e.target.value)}/>
                     </div>
                 </div>
-                <If test={searchedBooks}>
+                <If test={searchedBooks.length > 0}>
                     <div className="search-info">
                         <div>Now showing {searchedBooks.length} Books on your search!</div>
                         <button onClick={clearQuery}>Clear search</button>
@@ -33,7 +31,6 @@ class BooksSearch extends React.Component {
                     </div>
                 </If>
             </div>
-    
         )
     }
 };

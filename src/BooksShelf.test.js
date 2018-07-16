@@ -11,6 +11,7 @@ const props = {
     name: "read",
     label: "Read",
     changeShelf: jest.fn()
+
 }
 
 describe('[Component] BooksShelf', () => {

@@ -1,24 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import If from './helpers/If'
 
 const BookItem = ({ book, changeShelf }) => {
     if (book) {
         const { title, authors, imageLinks, shelf } = book
-        const { smallThumbnail } = imageLinks
         const style = {
             width: 128,
             height: 193,
-            backgroundImage: `url("${smallThumbnail}")`,
+            backgroundImage: `url("${imageLinks ? imageLinks.smallThumbnail : ""}")`,
         }
 
         return (
-            <li key={title}>
+            <li>
                 <div className="book">
                     <div className="book-top">
                     <div className="book-cover" style={ style }></div>
                         <div className="book-shelf-changer">
-                            <select value={ shelf } onChange={ (e) => changeShelf(e, book) }>
+                            <select value={ shelf ? shelf : "none" } onChange={ (e) => changeShelf(e, book) }>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
