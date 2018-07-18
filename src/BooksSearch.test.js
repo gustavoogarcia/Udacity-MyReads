@@ -17,19 +17,19 @@ const props = {
 jest.mock('react-router-dom')
 
 describe('[Component] BooksSearch', () => {
-    it('Shallow renders correctly', () => {
+    xit('Shallow renders correctly', () => {
 
         expect(shallow(<BooksSearch {...props} />));
     });
 
-    it('Maps through the books', () => {
+    xit('Maps through the books', () => {
         const wrapper = mount(
             <BooksSearch {...props}/>
         );
         expect(wrapper.find('li')).toHaveLength(3);
     })
 
-    it('Calls updateQuery on input change', () => {
+    xit('Calls updateQuery on input change', () => {
         const wrapper = mount(
             <BooksSearch {...props}/>
         );
@@ -39,7 +39,7 @@ describe('[Component] BooksSearch', () => {
         expect(props.updateQuery).toHaveBeenCalledTimes(1);
     })
 
-    it('Calls clearQuery on button click', () => {
+    xit('Calls clearQuery on button click', () => {
         const wrapper = mount(
             <BooksSearch {...props}/>
         );

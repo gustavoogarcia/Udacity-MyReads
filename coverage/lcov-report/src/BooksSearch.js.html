@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">70% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/10</span>
+        <span class='fraction'>4/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>1/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
+        <span class="strong">44.44% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/9</span>
+        <span class='fraction'>4/9</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -99,8 +99,7 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -108,26 +107,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,7 +131,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,45 +154,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';
 import PropTypes from 'prop-types'
-import escapeRegExp from 'escape-string-regexp'
 import { Link } from 'react-router-dom'
 import If from './helpers/If'
 import BookItem from './BookItem';
 &nbsp;
 class BooksSearch extends React.Component {
     render() {
-        let { query, updateQuery, clearQuery, changeShelf, books } = this.props
-        let searchedBooks
-&nbsp;
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (query) {
-            const match = <span class="cstat-no" title="statement not covered" >new RegExp(escapeRegExp(query), 'i')</span>
-<span class="cstat-no" title="statement not covered" >            searchedBooks = books.filter(<span class="fstat-no" title="function not covered" >(b</span>ook) =&gt; <span class="cstat-no" title="statement not covered" >match.test(book.title ) || match.test(book.authors))</span></span>
-        } else {
-            searchedBooks = books
-        }
+        let { query, updateQuery, clearQuery, changeShelf, searchedBooks, books } = this.props
         
-        return (
+        for (let searchedBook of searchedBooks) {
+            for (let book of books) {
+<span class="cstat-no" title="statement not covered" >                if (book.id === searchedBook.id) {</span>
+<span class="cstat-no" title="statement not covered" >                    searchedBook.shelf = book.shelf</span>
+                }
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return (</span>
             &lt;div className="search-books"&gt;
                 &lt;div className="search-books-bar"&gt;
                     &lt;Link to="" className="close-search"&gt;Close&lt;/Link&gt;
                     &lt;div className="search-books-input-wrapper"&gt;
-                        &lt;input type="text" placeholder="Search by title or author" value={query} onChange={(e) =&gt; updateQuery(e.target.value)}/&gt;
+                        &lt;input type="text" placeholder="Search by title or author" value={query} onChange={<span class="fstat-no" title="function not covered" >(e</span>) =&gt; <span class="cstat-no" title="statement not covered" >updateQuery(e.target.value)}</span>/&gt;
                     &lt;/div&gt;
                 &lt;/div&gt;
-                &lt;If test={searchedBooks.length !== books.length}&gt;
+                &lt;If test={searchedBooks.length &gt; 0}&gt;
                     &lt;div className="search-info"&gt;
-                        &lt;div&gt;Now showing {searchedBooks.length} of {books.length} Books&lt;/div&gt;
-                        &lt;button onClick={clearQuery}&gt;Show All&lt;/button&gt;
+                        &lt;div&gt;Now showing {searchedBooks.length} Books on your search!&lt;/div&gt;
+                        &lt;button onClick={clearQuery}&gt;Clear search&lt;/button&gt;
+                    &lt;/div&gt;
+                    &lt;div className="search-books-results"&gt;
+                        &lt;ol className="books-grid"&gt;
+                            {searchedBooks.map(<span class="fstat-no" title="function not covered" >(b</span>ook) =&gt; (
+<span class="cstat-no" title="statement not covered" >                                    &lt;BookItem key={book.id} changeShelf={changeShelf} book={book} /&gt;</span>
+                                )
+                            )}
+                        &lt;/ol&gt;
                     &lt;/div&gt;
                 &lt;/If&gt;
-                &lt;div className="search-books-results"&gt;
-                    &lt;ol className="books-grid"&gt;
-                        {searchedBooks.map((book) =&gt; (
-                                &lt;BookItem key={book.title} changeShelf={changeShelf} book={book} /&gt;
-                            )
-                        )}
-                    &lt;/ol&gt;
-                &lt;/div&gt;
             &lt;/div&gt;
         )
     }
@@ -205,7 +202,7 @@ BooksSearch.propTypes = {
     updateQuery: PropTypes.func.isRequired,
     clearQuery: PropTypes.func.isRequired,
     changeShelf: PropTypes.func.isRequired,
-    books: PropTypes.array.isRequired,
+    searchedBooks: PropTypes.array.isRequired,
 }
 &nbsp;
 export default BooksSearch</pre></td></tr>
@@ -214,7 +211,7 @@ export default BooksSearch</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 13 2018 22:53:56 GMT-0300 (-03)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 16 2018 22:18:19 GMT-0300 (-03)
 </div>
 </div>
 <script src="../prettify.js"></script>

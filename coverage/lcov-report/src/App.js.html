@@ -22,22 +22,22 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/43</span>
+        <span class='fraction'>0/46</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/13</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/21</span>
+        <span class='fraction'>0/23</span>
       </div>
     </div>
     <p class="quiet">
@@ -101,7 +101,12 @@
 <a name='L53'></a><a href='#L53'>53</a>
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -121,18 +126,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,6 +138,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -155,6 +164,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React <span class="cstat-no" title="statement not covered" >from 'react'<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span></span></span>
 import { Route } from <span class="cstat-no" title="statement not covered" >'react-router-dom'</span>
@@ -166,6 +176,7 @@ import BooksList <span class="cstat-no" title="statement not covered" >from './B
 class BooksApp extends React.Component {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
 	state = {
 		books: [],
+		searchedBooks: [],
 		query: ""
 	}
 &nbsp;
@@ -183,41 +194,45 @@ class BooksApp extends React.Component {<span class="cstat-no" title="statement 
 			shelf: shelf
 		})
 		t<span class="cstat-no" title="statement not covered" >his.setState({ books })</span>
-		B<span class="cstat-no" title="statement not covered" >ooksAPI.update(book, shelf)</span>
+		B<span class="cstat-no" title="statement not covered" >ooksAPI.update(book, e.target.value)</span>
 		
 	}
 &nbsp;
-	updateQuery = (<span class="fstat-no" title="function not covered" >ne</span>wQuery) =&gt; {
-		t<span class="cstat-no" title="statement not covered" >his.setState({ query: newQuery })</span>
+	updateQuery = (<span class="fstat-no" title="function not covered" >qu</span>ery) =&gt; {
+		t<span class="cstat-no" title="statement not covered" >his.setState({ query })</span>
+		q<span class="cstat-no" title="statement not covered" >uery === "" ? this.setState({ searchedBooks: [] }) : </span>
+			BooksAPI.search(query).then(<span class="fstat-no" title="function not covered" >(s</span>earchedBooks) =&gt; {
+<span class="cstat-no" title="statement not covered" >				searchedBooks instanceof Array ? this.setState({ searchedBooks }) : this.setState({ searchedBooks: [] })</span>
+			})
 	}
 &nbsp;
 	clearQuery = (<span class="fstat-no" title="function not covered" >) </span>=&gt; {
-		t<span class="cstat-no" title="statement not covered" >his.setState({ query: '' })</span>
+		t<span class="cstat-no" title="statement not covered" >his.updateQuery("")</span>
 	}<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" ></span></span></span></span>
 &nbsp;
-&nbsp;
 <span class="fstat-no" title="function not covered" >	re</span>nder() {
-<span class="cstat-no" title="statement not covered" >		const { boo</span>ks, query } = <span class="cstat-no" title="statement not covered" >this.state<span class="cstat-no" title="statement not covered" ></span></span>
-		const { change<span class="cstat-no" title="statement not covered" >Shelf, clearQuery</span>, updateQuery<span class="cstat-no" title="statement not covered" > } = this<span class="cstat-no" title="statement not covered" ></span></span>
+		const { <span class="cstat-no" title="statement not covered" >state, chan</span>geShelf, clear<span class="cstat-no" title="statement not covered" >Query, updateQuer</span>y } = this<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+		const { <span class="cstat-no" title="statement not covered" >books, searc</span>hedBooks, query <span class="cstat-no" title="statement not covered" >} = state<span class="cstat-no" title="statement not covered" ></span></span>
 <span class="cstat-no" title="statement not covered" >		return (</span>
 			&lt;div className="app"&gt;
 				&lt;Route path="/" exact render={() =&gt; (<span class="fstat-no" title="function not covered" ></span>
 <span class="cstat-no" title="statement not covered" >					&lt;BooksList changeShelf={changeShelf} books={books}/&gt;</span>
 				)} /&gt;
 				&lt;Route path="/search" render={() =&gt; (<span class="fstat-no" title="function not covered" ></span>
-<span class="cstat-no" title="statement not covered" >					&lt;BooksSearch query={query} updateQuery={updateQuery} clearQuery={clearQuery} changeShelf={changeShelf} books={books}/&gt;</span>
+<span class="cstat-no" title="statement not covered" >					&lt;BooksSearch query={query} updateQuery={updateQuery} clearQuery={clearQuery} changeShelf={changeShelf} books={books} searchedBooks={searchedBooks}/&gt;</span>
 				)} /&gt;
 			&lt;/div&gt;
 		)
 	}<span class="cstat-no" title="statement not covered" ></span>
 }
+&nbsp;
 export default BooksApp</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Jul 13 2018 22:53:56 GMT-0300 (-03)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Jul 16 2018 22:18:19 GMT-0300 (-03)
 </div>
 </div>
 <script src="../prettify.js"></script>

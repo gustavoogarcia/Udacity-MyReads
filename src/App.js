@@ -41,6 +41,7 @@ class BooksApp extends React.Component {
 	clearQuery = () => {
 		this.updateQuery("")
 	}
+
 	render() {
 		const { state, changeShelf, clearQuery, updateQuery } = this
 		const { books, searchedBooks, query } = state
@@ -56,4 +57,5 @@ class BooksApp extends React.Component {
 		)
 	}
 }
+
 export default BooksApp

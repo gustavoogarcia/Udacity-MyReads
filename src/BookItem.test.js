@@ -12,13 +12,17 @@ describe('[Component] BookItem', () => {
         expect(shallow(<BookItem {...props} />));
     });
 
+    it('If book has imageLinks, backgroundImage is imageLinks.smallThumbnail', () => {
+        const wrapper = mount(
+            <BookItem {...props}/>
+        );
+    });
+
     it('Calls changeShelf on select change', () => {
         const wrapper = mount(
             <BookItem {...props}/>
         );
-
         wrapper.find('select').simulate('change');
-
         expect(props.changeShelf).toHaveBeenCalledTimes(1);
     })
 });
