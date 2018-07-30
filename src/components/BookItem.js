@@ -1,19 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import If from '../helpers/If'
 
 const BookItem = ({ book, changeShelf }) => {
-    const { title, authors, imageLinks, shelf } = book
+    const { title, authors, imageLinks, shelf } = book;
     const style = {
-        width: 128,
-        height: 193,
         backgroundImage: `url("${imageLinks ? imageLinks.smallThumbnail : ""}")`,
-    }
+    };
 
     return (
         <li>
             <div className="book">
                 <div className="book-top">
-                <div className="book-cover" style={ style }></div>
+                    <div className="book-cover" style={ style }>
+                        <If test={!imageLinks}>
+                            <h5>MyReads</h5>
+                            <h6>{title}</h6>
+                        </If>
+                    </div>
                     <div className="book-shelf-changer">
                         <select value={ shelf ? shelf : "none" } onChange={ (e) => changeShelf(e, book) }>
                             <option value="move" disabled>Move to...</option>
@@ -28,12 +32,12 @@ const BookItem = ({ book, changeShelf }) => {
                 <div className="book-authors">{ authors }</div>
             </div>
         </li>
-    )
-}
+    );
+};
 
 BookItem.propTypes = {
     book: PropTypes.object.isRequired,
     changeShelf: PropTypes.func.isRequired 
-}
+};
 
-export default BookItem
+export default BookItem;

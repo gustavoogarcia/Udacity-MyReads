@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import If from './If';
+import If from '../../helpers/If';
 
 const children = (
     <div>Hello, world</div>

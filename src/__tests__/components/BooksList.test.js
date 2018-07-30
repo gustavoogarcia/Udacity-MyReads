@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import BooksList from './BooksList';
+import BooksList from '../../components/BooksList';
 
 const props = {
     books: [

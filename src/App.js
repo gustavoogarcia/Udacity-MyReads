@@ -2,10 +2,10 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import BooksSearch from './BooksSearch';
-import BooksList from './BooksList';
+import BooksSearch from './components/BooksSearch';
+import BooksList from './components/BooksList';
 
-class BooksApp extends React.Component {
+class App extends React.Component {
 	state = {
 		books: [],
 		searchedBooks: [],
@@ -13,7 +13,7 @@ class BooksApp extends React.Component {
 	}
 
 	componentDidMount() {
-		BooksAPI.getAll().then((books) => {
+		return BooksAPI.getAll().then((books) => {
 			this.setState({ books })
 		})
 	}
@@ -58,4 +58,4 @@ class BooksApp extends React.Component {
 	}
 }
 
-export default BooksApp
+export default App
