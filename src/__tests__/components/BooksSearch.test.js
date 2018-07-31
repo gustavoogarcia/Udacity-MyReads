@@ -29,6 +29,11 @@ describe('[Component] BooksSearch', () => {
         expect(wrapper.find('BookItem').first().prop("book")).toHaveProperty('shelf');
     })
 
+    it('searchedBook does not have books, showSearchedBooks is not called', () => {
+        const wrapper = mount(<BooksSearch {...props} searchedBooks={""}/>);
+        expect(wrapper.find('li')).toHaveLength(0);
+        })
+
     it('searchedBook is not on the books, searchedBook does not have a shelf', () => {
         const wrapper = mount(<BooksSearch {...props}/>);
         expect(wrapper.find('BookItem').last().prop("book")).not.toHaveProperty('shelf');

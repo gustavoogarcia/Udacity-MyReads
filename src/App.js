@@ -34,12 +34,12 @@ class App extends React.Component {
 		this.setState({ query })
 		query === "" ? this.setState({ searchedBooks: [] }) : 
 			BooksAPI.search(query).then((searchedBooks) => {
-				searchedBooks instanceof Array ? this.setState({ searchedBooks }) : this.setState({ searchedBooks: [] })
+				this.setState({ searchedBooks })
 			})
 	}
 
 	clearQuery = () => {
-		this.updateQuery("")
+		return this.updateQuery("")
 	}
 
 	render() {

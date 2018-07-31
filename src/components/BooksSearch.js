@@ -5,14 +5,26 @@ import If from '../helpers/If'
 import BookItem from './BookItem';
 
 const BooksSearch = ({ query, updateQuery, clearQuery, changeShelf, searchedBooks, books }) => {
-
-    for (let searchedBook of searchedBooks) {
-        for (let book of books) {
-            if (book.id === searchedBook.id) {
-                searchedBook.shelf = book.shelf
+    
+    let showSearchedBooks = ()=>{}
+    
+    if (searchedBooks instanceof Array) {
+        for (let searchedBook of searchedBooks) {
+            for (let book of books) {
+                if (book.id === searchedBook.id) {
+                    searchedBook.shelf = book.shelf
+                };
             };
         };
-    };
+
+        showSearchedBooks = () => {
+            return (
+                searchedBooks.map((book) => (
+                    <BookItem key={book.id} changeShelf={changeShelf} book={book} />
+                ))
+            )
+        }
+    } 
 
     return (
         <div className="search-books">
@@ -29,10 +41,7 @@ const BooksSearch = ({ query, updateQuery, clearQuery, changeShelf, searchedBook
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {searchedBooks.map((book) => (
-                                <BookItem key={book.id} changeShelf={changeShelf} book={book} />
-                            )
-                        )}
+                        { showSearchedBooks() }
                     </ol>
                 </div>
             </If>
@@ -45,7 +54,7 @@ BooksSearch.propTypes = {
     updateQuery: PropTypes.func.isRequired,
     clearQuery: PropTypes.func.isRequired,
     changeShelf: PropTypes.func.isRequired,
-    searchedBooks: PropTypes.array.isRequired,
+    books: PropTypes.array,
 };
 
 export default BooksSearch;
